@@ -44,8 +44,30 @@ void OrderProcessing::displayAllPlacedOrders() {
 	}
 }
 
+struct classcomp {
+	bool operator()(const int& i, const int& j) {
+		return (i > j);
+	}
+};
+
 void OrderProcessing::orderOrdersByMoreDeliveries() {
-	placedOrders
+	map<int, int, classcomp> priorityMap;
+	map<int, map<Item, int> >::iterator it;
+	for(it = placedOrders.begin(); it != placedOrders.end(); ++it) {
+		int orderId = it->first;
+		map<Item, int> m = it->second;
+		map<Item, int>::iterator it2;
+		int totalCnt = 0;
+		for (it2 = m.begin(); it2 != m.end(); ++it2) {
+			totalCnt += it2->second;
+		}
+		priorityMap.insert(make_pair(totalCnt, orderId));
+	}
+	cout << "Printing orders by priority.." << endl;
+	map<int, int>::iterator it3;
+	for (it3 = priorityMap.begin(); it3 != priorityMap.end(); ++it3) {
+		cout << "Order ID: " << it3->first << " Total Items: " << it3->second << endl;
+	}
 }
 
 void OrderProcessing::orderOrdersByLesserDelay() {

@@ -66,6 +66,7 @@ int main() {
 	user5.placeOrder();
 
 	OrderProcessing::displayAllPlacedOrders();
+	OrderProcessing::orderOrdersByMoreDeliveries();
 
 	delete c;
 	delete c2;
