@@ -1,5 +1,6 @@
 #include "stdafx.h"
 #include "User.h"
+#include "Order.h"
 
 
 User::User(int id, string n) : user_id(id), name(n) {

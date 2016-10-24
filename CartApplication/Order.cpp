@@ -1,6 +1,8 @@
 #include "stdafx.h"
 #include "Order.h"
 #include"OrderProcessing.h"
+#include <iostream>
+using namespace std;
 
 int Order::orderCnt = 100;
 map<int, int> Order::orderUserMap;

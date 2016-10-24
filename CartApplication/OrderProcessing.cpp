@@ -1,5 +1,7 @@
 #include "stdafx.h"
 #include "OrderProcessing.h"
+#include <iostream>
+using namespace std;
 
 map< int, map<Item, int> > OrderProcessing::placedOrders;
 bool OrderProcessing::instanceFlag = false;
